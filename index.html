@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title / Description -->
+    <title>DoNotSubmit - enter your title</title>
+    <meta name="description" content="DoNotSubmit - enter your description" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://your-domain.com/DoNotSubmit" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+
+    <!-- Theme / Icons -->
+    <meta name="theme-color" content="#0a0908" />
+    <link rel="icon" href="./assets/profile.ico" />
+    <link rel="apple-touch-icon" href="./assets/profile.png" />
+
+    <!-- CSS - Compiled by Tailwind CSS -->
+    <link href="./src/output.css" rel="stylesheet" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DoNotSubmit" />
+    <meta property="og:title" content="DoNotSubmit - enter your title" />
+    <meta
+      property="og:description"
+      content="DoNotSubmit - enter your description"
+    />
+    <meta property="og:url" content="https://your-domain.com/DoNotSubmit" />
+    <meta
+      property="og:image"
+      content="https://your-domain.com/assets/profile.png"
+    />
+    <meta property="og:image:alt" content="DoNotSubmit - enter your title" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DoNotSubmit - enter your title" />
+    <meta
+      name="twitter:description"
+      content="DoNotSubmit - enter your description"
+    />
+    <meta name="twitter:image" content="./assets/profile.png" />
+  </head>
+
+  <body
+    class="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-950 dark:via-slate-900 dark:to-purple-950 transition-all duration-500 relative overflow-x-hidden"
+  >
+    <!-- Animated Background Orbs -->
+    <div
+      class="fixed inset-0 overflow-hidden pointer-events-none opacity-30 dark:opacity-20"
+    >
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl floating-orb"
+      ></div>
+      <div
+        class="absolute top-40 right-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl floating-orb"
+        style="animation-delay: 2s"
+      ></div>
+      <div
+        class="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl floating-orb"
+        style="animation-delay: 4s"
+      ></div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="fixed top-6 right-6 z-50">
+      <button
+        id="theme-toggle-light"
+        aria-label="Toggle dark mode"
+        class="theme-toggle-btn w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-2xl border-2 border-purple-200 dark:border-purple-700 dark:hidden hover:shadow-xl"
+        type="button"
+      >
+        🌙
+      </button>
+      <button
+        id="theme-toggle-dark"
+        aria-label="Toggle light mode"
+        class="theme-toggle-btn w-12 h-12 rounded-full bg-slate-800 dark:bg-white shadow-lg hidden dark:flex items-center justify-center text-2xl border-2 border-purple-700 dark:border-purple-200 hover:shadow-xl"
+        type="button"
+      >
+        ☀️
+      </button>
+    </div>
+
+    <div
+      class="max-w-6xl mx-auto px-4 md:px-6 pt-6 md:pt-16 pb-2 md:pb-4 relative z-10"
+    >
+      <!-- Progress Indicator -->
+      <div class="fixed top-6 left-6 right-20 z-40 max-w-md">
+        <div class="glass-card rounded-2xl shadow-xl p-4 md:p-6">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-white">
+              📊 Deployment Progress
+            </h3>
+            <span id="progress-percentage" class="text-2xl md:text-3xl font-bold gradient-text">
+              0%
+            </span>
+          </div>
+          <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 md:h-4 overflow-hidden">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+          </div>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+            <span id="completed-count">0</span> of <span id="total-count">0</span> steps completed
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="mb-20 text-center">
+        <div class="inline-block mb-6">
+          <div
+            class="animated-gradient text-white text-sm font-semibold px-6 py-2 rounded-full shadow-lg"
+          >
+            ⚡ Lightning-Fast Deployment
+          </div>
+        </div>
+
+        <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight">
+          <span class="gradient-text">Deploy to your AWS</span>
+          <br />
+          <span class="text-slate-800 dark:text-white">In Minutes</span>
+        </h1>
+
+        <p
+          class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-4 font-light leading-relaxed"
+        >
+          Launch your landing page with automated CI/CD, CloudFront CDN, and
+          HTTPS. No need for vercel or any other hosting provider than your own
+          AWS account.
+        </p>
+        <p
+          class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light"
+        >
+          Perfect for MicroSaaS founders who ship fast. GitHub Actions handles
+          everything.
+        </p>
+
+        <!-- Stats Row -->
+        <div class="hidden md:grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
+          <div class="text-center">
+            <div class="text-4xl font-bold gradient-text mb-2">15 mins</div>
+            <div class="text-sm text-slate-600 dark:text-slate-400">
+              Setup Time
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold gradient-text mb-2">$0.00</div>
+            <div class="text-sm text-slate-600 dark:text-slate-400">
+              Most often with in AWS
+              <a href="https://aws.amazon.com/free/" class="font-bold"
+                >free-tier</a
+              >.
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold gradient-text mb-2">&gt; 99.9%</div>
+            <div class="text-sm text-slate-600 dark:text-slate-400">
+              <a href="https://aws.amazon.com/cloudfront/sla/" class="font-bold"
+                >Uptime guarantee</a
+              >
+              per month
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prerequisites (discreet) -->
+      <details
+        class="mb-4 md:mb-6 text-sm md:text-base text-slate-600 dark:text-slate-400"
+      >
+        <summary
+          class="cursor-pointer select-none font-semibold text-slate-700 dark:text-slate-300"
+        >
+          ⚠️ Prerequisites: AWS account, GitHub account, a custom domain to
+          point to.
+        </summary>
+        <div class="mt-3">
+          <ul class="list-disc list-inside space-y-1">
+            <li>
+              AWS account with IAM access to create S3 and CloudFront and ACM.
+            </li>
+            <li>GitHub account to create a repository.</li>
+            <li>A custom domain with DNS access.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Domain Input Card (not collapsible) -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-8 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="mb-3 md:mb-4">
+          <h2
+            class="text-xl md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
+          >
+            🌐 Domain Configuration
+          </h2>
+          <p class="text-sm md:text-base text-slate-600 dark:text-slate-400">
+            Enter your domain name to generate the project name
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <div>
+            <label
+              for="domain-input"
+              class="block text-xs md:text-sm font-semibold text-slate-800 dark:text-white mb-1.5"
+            >
+              Domain Name
+            </label>
+            <input
+              type="text"
+              id="domain-input"
+              placeholder="example.com"
+              class="w-full px-3 py-2 md:px-4 md:py-2.5 rounded-lg bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 focus:border-purple-400 dark:focus:border-purple-500 focus:outline-none text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all text-sm md:text-base"
+            />
+          </div>
+          <div>
+            <label
+              class="block text-xs md:text-sm font-semibold text-slate-800 dark:text-white mb-1.5"
+            >
+              Generated Project Name
+            </label>
+            <div
+              id="project-name-display"
+              class="w-full px-3 py-2 md:px-4 md:py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 text-purple-600 dark:text-purple-400 font-mono text-xs md:text-sm"
+            >
+              (enter domain name)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Creation Card -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-10 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="flex items-center gap-2 md:gap-4 mb-4 md:mb-8 flex-col">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white"
+          >
+            🔒 Create your SSL certificate
+          </h2>
+          <p class="text-base md:text-lg text-slate-600 dark:text-slate-400">
+            Follow these steps in AWS Certificate Manager (ACM).
+          </p>
+        </div>
+
+        <ul class="space-y-3 md:space-y-4 lg:space-y-5">
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="cert.request"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Create a public certificate in ACM (us-east-1)
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  Click
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://us-east-1.console.aws.amazon.com/acm/home?region=us-east-1#/certificates/request/public"
+                    class="font-bold"
+                    >this link to create both the root domain and the www. </a
+                  ><br />
+                  For "Fully qualified domain name," enter both your root domain
+                  (e.g.,
+                  <span class="font-mono font-semibold">example.com</span>) and
+                  the <span class="font-mono font-semibold">www.</span> version
+                  (e.g.,
+                  <span class="font-mono font-semibold">www.example.com</span>),
+                  so the certificate covers both.
+                </div>
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="cert.dnsValidation"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Update DNS at your registrar to validate
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  Copy the CNAME records from ACM and add them to your domain
+                  and it's www. version to registrar (namecheap, godaddy, etc.)
+                  so the certificate becomes valid.
+                </div>
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="cert.copyArn"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Click the certificate ARN to copy it
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  You will use the ARN later, so keep it handy.
+                </div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ARN Input Card -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-8 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="mb-3 md:mb-4">
+          <h2
+            class="text-xl md:text-2xl font-bold text-slate-800 dark:text-white mb-1"
+          >
+            📋 Certificate ARN
+          </h2>
+          <p class="text-sm md:text-base text-slate-600 dark:text-slate-400">
+            Paste the ARN from the certificate you just created
+          </p>
+        </div>
+
+        <div>
+          <label
+            for="arn-input"
+            class="block text-xs md:text-sm font-semibold text-slate-800 dark:text-white mb-1.5"
+          >
+            Certificate ARN
+          </label>
+          <input
+            type="text"
+            id="arn-input"
+            placeholder="arn:aws:acm:us-east-1:..."
+            class="w-full px-3 py-2 md:px-4 md:py-2.5 rounded-lg bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 focus:border-purple-400 dark:focus:border-purple-500 focus:outline-none text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all text-sm md:text-base"
+          />
+        </div>
+      </div>
+
+      <!-- Working in local Card -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-10 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="flex items-center gap-2 md:gap-4 mb-4 md:mb-8 flex-col">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white"
+          >
+            👩‍💻 Working in local.
+          </h2>
+          <p class="text-base md:text-lg text-slate-600 dark:text-slate-400">
+            Download and run the project locally. (2 Minutes).
+          </p>
+        </div>
+
+        <ul class="space-y-3 md:space-y-4 lg:space-y-5">
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="local.cloneRepo"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Clone the repository
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  Clone the repository to your local environment.
+                  <div class="mt-2 relative group">
+                    <div
+                      class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-slate-100 dark:bg-slate-800 rounded-lg p-2 md:p-3 border border-slate-200 dark:border-slate-700"
+                    >
+                      <code
+                        class="flex-1 text-purple-600 dark:text-purple-400 font-mono text-xs md:text-sm break-all"
+                        id="clone-command"
+                      ></code>
+                      <button
+                        class="copy-btn flex-shrink-0 px-3 py-2 md:px-3 md:py-1.5 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded text-xs md:text-xs font-medium transition-colors duration-200 flex items-center gap-1.5 min-h-[44px] md:min-h-0 touch-manipulation"
+                        data-copy-target="#clone-command"
+                        aria-label="Copy command"
+                        type="button"
+                      >
+                        <span class="copy-icon text-base md:text-sm">📋</span>
+                        <span class="copy-text">Copy</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                💾
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-5 p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="local.npmInstall"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Go to your new folder and install the dependencies
+                </div>
+                <div
+                  class="text-sm text-slate-600 dark:text-slate-400 flex flex-wrap items-center gap-2"
+                >
+                  Run
+                  <span class="flex items-center gap-1 flex-wrap">
+                    <code
+                      class="px-2 py-1 bg-slate-200 dark:bg-slate-700 rounded text-purple-600 dark:text-purple-400 text-xs md:text-sm"
+                      >npm install</code
+                    >
+                    <button
+                      class="copy-btn flex-shrink-0 px-3 py-2 md:px-2 md:py-0.5 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded text-xs font-medium transition-colors duration-200 flex items-center gap-1 md:ml-1 min-h-[44px] md:min-h-0 touch-manipulation"
+                      data-copy-text="npm install"
+                      aria-label="Copy 'npm install'"
+                      type="button"
+                    >
+                      <span class="copy-icon text-base md:text-sm">📋</span>
+                      <span class="copy-text">Copy</span>
+                    </button>
+                  </span>
+                  to get started
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                📦
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-5 p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="local.runDev"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Run the project locally
+                </div>
+                <div
+                  class="text-sm text-slate-600 dark:text-slate-400 flex flex-wrap items-center gap-2"
+                >
+                  Run
+                  <span class="flex items-center gap-1 flex-wrap">
+                    <code
+                      class="px-2 py-1 bg-slate-200 dark:bg-slate-700 rounded text-purple-600 dark:text-purple-400 text-xs md:text-sm"
+                      >npm run dev</code
+                    >
+                    <button
+                      class="copy-btn flex-shrink-0 px-3 py-2 md:px-2 md:py-0.5 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded text-xs font-medium transition-colors duration-200 flex items-center gap-1 md:ml-1 min-h-[44px] md:min-h-0 touch-manipulation"
+                      data-copy-text="npm run dev"
+                      aria-label="Copy 'npm run dev'"
+                      type="button"
+                    >
+                      <span class="copy-icon text-base md:text-sm">📋</span>
+                      <span class="copy-text">Copy</span>
+                    </button>
+                    and go to
+                    <a
+                      href="http://localhost:5173"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="underline"
+                      >localhost:5173</a
+                    >
+                    to see the project.
+                  </span>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                🚀
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="local.createRepo"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Create your GitHub repository and push
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  <p class="mb-2">
+                    Create a new repo on GitHub (public or private), then push
+                    your code:
+                  </p>
+                  <div
+                    class="bg-slate-100 dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 font-mono text-xs space-y-1"
+                  >
+                    <div class="text-slate-500">git init</div>
+                    <div class="text-slate-500">git add .</div>
+                    <div class="text-slate-500">
+                      git commit -m "Initial commit"
+                    </div>
+                    <div class="text-purple-600 dark:text-purple-400">
+                      git remote add origin https://github.com/USERNAME/REPO.git
+                    </div>
+                    <div class="text-slate-500">git push -u origin main</div>
+                  </div>
+                  <p class="mt-2 text-xs text-slate-500 italic">
+                    Required before CloudFormation so the template URL works.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                📤
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Setting up S3 and CloudFront Card -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-10 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="flex items-center gap-2 md:gap-4 mb-4 md:mb-8 flex-col">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white"
+          >
+            🔧 Setting up S3 and CloudFront.
+          </h2>
+          <p class="text-base md:text-lg text-slate-600 dark:text-slate-400">
+            Set up your AWS infrastructure. (5 Minutes).
+          </p>
+        </div>
+
+        <ul class="space-y-3 md:space-y-4 lg:space-y-5">
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="aws.cloudformation"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-3"
+                >
+                  Deploy infrastructure with CloudFormation
+                </div>
+                <div class="flex flex-col gap-4">
+                  <!-- GitHub repo input for template URL -->
+                  <div class="space-y-2">
+                    <label
+                      for="github-repo-input"
+                      class="block text-xs md:text-sm font-semibold text-slate-800 dark:text-white"
+                    >
+                      Your GitHub Repository (format: username/repo)
+                    </label>
+                    <input
+                      type="text"
+                      id="github-repo-input"
+                      placeholder="username/my-site"
+                      class="w-full px-3 py-2 md:px-4 md:py-2.5 rounded-lg bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 focus:border-purple-400 dark:focus:border-purple-500 focus:outline-none text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all text-sm md:text-base"
+                    />
+                    <p
+                      class="text-xs text-slate-500 dark:text-slate-400 italic"
+                    >
+                      Create your GitHub repo and push your code first, then
+                      enter it here.
+                    </p>
+                  </div>
+
+                  <!-- Launch Stack button -->
+                  <div class="flex justify-center md:justify-start">
+                    <a
+                      id="cloudformation-launch-btn"
+                      href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Launch CloudFormation Stack"
+                      class="inline-block transition-transform hover:scale-105 active:scale-95 filter hover:brightness-110"
+                    >
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/buildkite/cloudformation-launch-stack-button-svg@master/launch-stack.svg"
+                        alt="Launch Stack"
+                        style="height: 44px; width: auto; display: inline-block"
+                      />
+                    </a>
+                  </div>
+
+                  <!-- Instructions -->
+                  <div
+                    class="text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/50 rounded-lg p-3 border border-slate-200 dark:border-slate-700"
+                  >
+                    <p
+                      class="mb-2 font-medium text-slate-700 dark:text-slate-300"
+                    >
+                      In CloudFormation console:
+                    </p>
+                    <ul class="space-y-2 ml-1">
+                      <li class="flex items-start gap-2">
+                        <span
+                          class="text-purple-500 dark:text-purple-400 mt-0.5"
+                          >1.</span
+                        >
+                        <span>
+                          If template URL fails, upload
+                          <code
+                            class="font-mono text-xs px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-purple-600 dark:text-purple-400"
+                            >assets/cloudformation.yaml</code
+                          >
+                          from your local folder
+                        </span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span
+                          class="text-purple-500 dark:text-purple-400 mt-0.5"
+                          >2.</span
+                        >
+                        <span>
+                          Fill in parameters: DomainName, AcmCertificateArn,
+                          GitHubRepo
+                        </span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span
+                          class="text-purple-500 dark:text-purple-400 mt-0.5"
+                          >3.</span
+                        >
+                        <span>
+                          Check "I acknowledge that AWS CloudFormation might
+                          create IAM resources"
+                        </span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span
+                          class="text-purple-500 dark:text-purple-400 mt-0.5"
+                          >4.</span
+                        >
+                        <span>
+                          Click <strong>Create stack</strong> and wait for
+                          completion (~3-5 min)
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                ☁️
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- DNS Configuration -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-10 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="flex items-center gap-2 md:gap-4 mb-4 md:mb-8 flex-col">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white"
+          >
+            🌍 Point your DNS to CloudFront.
+          </h2>
+          <p class="text-base md:text-lg text-slate-600 dark:text-slate-400">
+            Configure your domain to use CloudFront. (2 Minutes).
+          </p>
+        </div>
+
+        <ul class="space-y-3 md:space-y-4 lg:space-y-5">
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="dns.getCloudFront"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Get CloudFront domain from stack outputs
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  Go to CloudFormation → your stack → Outputs tab. Copy the
+                  <code
+                    class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-purple-600 dark:text-purple-400 text-xs"
+                    >CloudFrontDomainName</code
+                  >
+                  value (e.g.,
+                  <code
+                    class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-purple-600 dark:text-purple-400 text-xs"
+                    >d1234abcd.cloudfront.net</code
+                  >).
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                📋
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="dns.configureRecords"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Configure DNS records at your registrar
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  <p class="mb-2">
+                    At your DNS provider (Cloudflare, GoDaddy, Namecheap, etc.):
+                  </p>
+                  <ul class="space-y-1.5 ml-1">
+                    <li class="flex items-start gap-2">
+                      <span class="text-purple-500 dark:text-purple-400 mt-0.5"
+                        >→</span
+                      >
+                      <span
+                        ><strong>www.example.com</strong>: Add a
+                        <code
+                          class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-xs"
+                          >CNAME</code
+                        >
+                        pointing to your CloudFront domain</span
+                      >
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-purple-500 dark:text-purple-400 mt-0.5"
+                        >→</span
+                      >
+                      <span
+                        ><strong>example.com</strong> (apex): Use
+                        <code
+                          class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-xs"
+                          >ALIAS</code
+                        >
+                        or
+                        <code
+                          class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-xs"
+                          >ANAME</code
+                        >
+                        if supported, or a flattened CNAME (Cloudflare supports
+                        this)</span
+                      >
+                    </li>
+                  </ul>
+                  <p
+                    class="mt-2 text-xs text-slate-500 dark:text-slate-500 italic"
+                  >
+                    Note: www.example.com automatically redirects to example.com
+                    via CloudFront.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                🔗
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Configure CI/CD -->
+      <div
+        class="glass-card rounded-3xl shadow-2xl glow-effect p-4 md:p-6 lg:p-10 mb-6 md:mb-12 transform transition-all duration-300 hover:shadow-purple-500/20"
+      >
+        <div class="flex items-center gap-2 md:gap-4 mb-4 md:mb-8 flex-col">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 dark:text-white"
+          >
+            🔨 Configure CI/CD.
+          </h2>
+          <p class="text-base md:text-lg text-slate-600 dark:text-slate-400">
+            Connect GitHub Actions to AWS. (2 Minutes).
+          </p>
+        </div>
+
+        <ul class="space-y-3 md:space-y-4 lg:space-y-5">
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="gh.addVariables"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Add repository variables from CloudFormation outputs
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  <p class="mb-2">
+                    Go to GitHub → your repo → Settings → Secrets and variables
+                    → Actions → Variables tab. Add these 3 variables:
+                  </p>
+                  <div
+                    class="bg-slate-100 dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 space-y-2"
+                  >
+                    <div class="flex items-center gap-2 text-xs">
+                      <code
+                        class="px-2 py-1 bg-white dark:bg-slate-900 rounded border border-slate-300 dark:border-slate-600 text-purple-600 dark:text-purple-400 font-semibold"
+                        >AWS_ROLE_ARN</code
+                      >
+                      <span class="text-slate-500">←</span>
+                      <span>GitHubRoleARN from stack outputs</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs">
+                      <code
+                        class="px-2 py-1 bg-white dark:bg-slate-900 rounded border border-slate-300 dark:border-slate-600 text-purple-600 dark:text-purple-400 font-semibold"
+                        >S3_BUCKET</code
+                      >
+                      <span class="text-slate-500">←</span>
+                      <span>SiteBucketName from stack outputs</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs">
+                      <code
+                        class="px-2 py-1 bg-white dark:bg-slate-900 rounded border border-slate-300 dark:border-slate-600 text-purple-600 dark:text-purple-400 font-semibold"
+                        >CLOUDFRONT_ID</code
+                      >
+                      <span class="text-slate-500">←</span>
+                      <span>CloudFrontId from stack outputs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                ⚙️
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="gh.pushDeploy"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Push to Deploy
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  Commit your changes and push to main. GitHub Actions will
+                  automatically build your site, upload to S3, and invalidate
+                  CloudFront cache.
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                ✨
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
