@@ -711,7 +711,7 @@
                       <code
                         class="flex-1 text-purple-600 dark:text-purple-400 font-mono text-xs md:text-sm break-all"
                         id="git-remote-command"
-                        >git remote add origin
+                        >git remote set-url origin
                         https://github.com/USERNAME/REPO.git</code
                       >
                       <button
@@ -806,7 +806,7 @@
                 </div>
                 <div class="flex flex-col gap-4">
                   <!-- Launch Stack button -->
-                  <div class="flex flex-col items-center gap-2">
+                  <div class="flex justify-center">
                     <a
                       id="cloudformation-launch-btn"
                       href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review"
@@ -829,10 +829,6 @@
                       </svg>
                       Launch CloudFormation Stack
                     </a>
-                    <p
-                      id="cloudformation-missing-fields-error"
-                      class="text-xs text-red-600 dark:text-red-400 hidden mt-1"
-                    ></p>
                   </div>
 
                   <!-- Instructions -->
