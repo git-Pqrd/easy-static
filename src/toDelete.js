@@ -148,11 +148,11 @@ function updateGitCommands() {
   const githubRepo = (githubRepoInput.value || "").trim();
 
   if (githubRepo && githubRepo.includes('/') && !githubRepo.includes('.git') && !githubRepo.includes('github.com')) {
-    // Valid format: username/repo - remove existing remote first (ignore error if it doesn't exist), then add
-    gitRemoteCommand.textContent = `git remote remove origin 2>$null; git remote add origin https://github.com/${githubRepo}.git`;
+    // Valid format: username/repo
+    gitRemoteCommand.textContent = `git remote set-url origin https://github.com/${githubRepo}.git`;
   } else {
     // Default placeholder
-    gitRemoteCommand.textContent = 'git remote remove origin 2>$null; git remote add origin https://github.com/USERNAME/REPO.git';
+    gitRemoteCommand.textContent = 'git remote set-url origin https://github.com/USERNAME/REPO.git';
   }
 }
 
