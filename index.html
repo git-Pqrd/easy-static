@@ -711,7 +711,8 @@
                       <code
                         class="flex-1 text-purple-600 dark:text-purple-400 font-mono text-xs md:text-sm break-all"
                         id="git-remote-command"
-                        >git remote set-url origin https://github.com/USERNAME/REPO.git</code
+                        >git remote set-url origin
+                        https://github.com/USERNAME/REPO.git</code
                       >
                       <button
                         class="copy-btn flex-shrink-0 px-3 py-2 md:px-3 md:py-1.5 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded text-xs md:text-xs font-medium transition-colors duration-200 flex items-center gap-1.5 min-h-[44px] md:min-h-0 touch-manipulation"
@@ -1105,8 +1106,18 @@
                 </div>
                 <div class="text-sm text-slate-600 dark:text-slate-400">
                   <p class="mb-2">
-                    Go to GitHub → your repo → Settings → Secrets and variables
-                    → Actions → Variables tab. Add these 3 variables:
+                    Go to
+                    <a
+                      id="github-secrets-link"
+                      href="https://github.com/USERNAME/REPO/settings/secrets/actions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 underline font-medium"
+                    >
+                      GitHub → your repo → Settings → Secrets and variables →
+                      Actions → Variables tab
+                    </a>
+                    . Add these 3 variables:
                   </p>
                   <div
                     class="bg-slate-100 dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 space-y-2"
@@ -1189,6 +1200,150 @@
                 class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
               >
                 ✨
+              </div>
+            </label>
+          </li>
+
+          <li class="feature-card group">
+            <label
+              class="flex items-start gap-3 md:gap-4 lg:gap-5 p-3 md:p-4 lg:p-5 rounded-2xl bg-white/50 dark:bg-slate-800/50 border-2 border-slate-200 dark:border-slate-700 cursor-pointer hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg"
+            >
+              <div class="relative mt-1">
+                <input
+                  type="checkbox"
+                  data-id="cleanup.donotsubmit"
+                  class="peer w-6 h-6 rounded-lg border-2 border-slate-300 dark:border-slate-600 checked:bg-gradient-to-br checked:from-purple-500 checked:to-blue-500 checked:border-purple-500 cursor-pointer appearance-none transition-all"
+                />
+                <svg
+                  class="absolute top-1 left-1 w-4 h-4 text-white hidden peer-checked:block pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div
+                  class="text-base md:text-lg lg:text-xl font-semibold text-slate-800 dark:text-white mb-1"
+                >
+                  Replace DoNotSubmit placeholders
+                </div>
+                <div class="text-sm text-slate-600 dark:text-slate-400">
+                  <p class="mb-3">
+                    Replace all
+                    <code
+                      class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-xs font-mono"
+                      >DoNotSubmit</code
+                    >
+                    instances with your actual content:
+                  </p>
+                  <ul class="list-disc list-inside space-y-1 mb-3 text-xs">
+                    <li>
+                      <strong>index.html</strong> - Update title, description,
+                      and Open Graph tags
+                    </li>
+                    <li><strong>package.json</strong> - Change package name</li>
+                    <li>
+                      <strong>src/main.js</strong> - Remove DoNotSubmit comments
+                    </li>
+                    <li>
+                      <strong>src/toDelete.js</strong> - Delete this file, then
+                      remove imports and function calls from
+                      <code
+                        class="px-1 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-xs"
+                        >src/main.js</code
+                      >
+                    </li>
+                  </ul>
+
+                  <div class="space-y-2">
+                    <div
+                      class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3 border border-purple-200 dark:border-purple-800"
+                    >
+                      <div class="flex items-center justify-between mb-2">
+                        <p
+                          class="text-xs font-semibold text-purple-700 dark:text-purple-300"
+                        >
+                          🤖 AI Assistant Prompt (Copy & Paste):
+                        </p>
+                        <button
+                          type="button"
+                          class="copy-btn flex-shrink-0 px-2 py-1 bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded text-xs font-medium transition-colors duration-200 flex items-center gap-1 min-h-[32px] touch-manipulation"
+                          data-copy-target="#ai-prompt-text"
+                          aria-label="Copy AI prompt"
+                        >
+                          <span class="copy-icon text-xs">📋</span>
+                          <span class="copy-text">Copy</span>
+                        </button>
+                      </div>
+                      <code
+                        id="ai-prompt-text"
+                        class="block text-xs font-mono text-slate-800 dark:text-slate-200 whitespace-pre-wrap break-all bg-white dark:bg-slate-900 p-2 rounded border border-purple-300 dark:border-purple-700"
+                        >Find all instances of "DoNotSubmit" (case-insensitive)
+                        in my codebase and help me replace them. I have files
+                        with: - index.html: meta tags with title, description,
+                        og:title, og:description, og:site_name, og:url, twitter
+                        tags - replace "DoNotSubmit" with appropriate values -
+                        package.json: package name
+                        "donotsubmit_enter_your_project_name" - replace with a
+                        valid npm package name - src/main.js: comments
+                        containing "DoNotSubmit" - remove these comments -
+                        src/toDelete.js: delete this entire file (it's template
+                        code that's no longer needed) Also, update src/main.js
+                        to remove any imports from "./toDelete" after deleting
+                        that file. Generate a script or step-by-step
+                        instructions to replace all instances
+                        appropriately.</code
+                      >
+                    </div>
+
+                    <div
+                      class="bg-slate-100 dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700"
+                    >
+                      <p
+                        class="text-xs font-semibold mb-2 text-slate-700 dark:text-slate-300"
+                      >
+                        💡 Manual Method (VS Code / Any Editor):
+                      </p>
+                      <p class="text-xs mb-1">
+                        Use
+                        <kbd
+                          class="px-1.5 py-0.5 bg-white dark:bg-slate-900 rounded border border-slate-300 dark:border-slate-600"
+                          >Ctrl+H</kbd
+                        >
+                        (or
+                        <kbd
+                          class="px-1.5 py-0.5 bg-white dark:bg-slate-900 rounded border border-slate-300 dark:border-slate-600"
+                          >Cmd+H</kbd
+                        >
+                        on Mac), enable regex, and search:
+                      </p>
+                      <code
+                        class="block text-xs font-mono text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900 p-1.5 rounded border border-slate-300 dark:border-slate-600 mt-1"
+                        >(?i)DoNotSubmit</code
+                      >
+                      <p
+                        class="text-xs mt-1.5 text-slate-600 dark:text-slate-500"
+                      >
+                        Replace with your actual title/name/description as
+                        needed in each context.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="text-3xl opacity-0 group-hover:opacity-100 transition-opacity"
+              >
+                🧹
               </div>
             </label>
           </li>

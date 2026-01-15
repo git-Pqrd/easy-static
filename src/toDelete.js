@@ -157,6 +157,26 @@ function updateGitCommands() {
 }
 
 /**
+ * Update GitHub secrets link based on GitHub repo input
+ */
+function updateGitHubSecretsLink() {
+  const githubRepoInput = document.getElementById("github-repo-input");
+  const githubSecretsLink = document.getElementById("github-secrets-link");
+
+  if (!githubRepoInput || !githubSecretsLink) return;
+
+  const githubRepo = (githubRepoInput.value || "").trim();
+
+  if (githubRepo && githubRepo.includes('/') && !githubRepo.includes('.git') && !githubRepo.includes('github.com')) {
+    // Valid format: username/repo
+    githubSecretsLink.href = `https://github.com/${githubRepo}/settings/secrets/actions`;
+  } else {
+    // Default placeholder
+    githubSecretsLink.href = 'https://github.com/USERNAME/REPO/settings/secrets/actions';
+  }
+}
+
+/**
  * Initialize GitHub repo validation in repo creation section
  */
 export function initGitHubRepoValidation() {
@@ -211,14 +231,16 @@ export function initGitHubRepoValidation() {
       }
     }
 
-    // Update git commands whenever input changes
+    // Update git commands and secrets link whenever input changes
     updateGitCommands();
+    updateGitHubSecretsLink();
   };
 
   githubRepoInput.addEventListener("input", validateRepo);
   validateRepo();
-  // Also update git commands on initial load
+  // Also update git commands and secrets link on initial load
   updateGitCommands();
+  updateGitHubSecretsLink();
 }
 
 /**
