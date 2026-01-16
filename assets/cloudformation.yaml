@@ -25,7 +25,98 @@ Parameters:
     Default: main
     Description: Branch for OIDC trust
 
+Conditions:
+  ShouldCreateOIDCProvider:
+    !Equals [!GetAtt OIDCProviderChecker.Exists, "false"]
+
 Resources:
+  # Custom resource to check if OIDC provider exists
+  OIDCProviderChecker:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-oidc-checker"
+      Runtime: python3.11
+      Handler: index.handler
+      Role: !GetAtt OIDCProviderCheckerRole.Arn
+      Timeout: 30
+      Code:
+        ZipFile: |
+          import boto3
+          import json
+          import urllib3
+
+          http = urllib3.PoolManager()
+
+          def send_response(event, context, status, response_data):
+              response_body = json.dumps({
+                  'Status': status,
+                  'Reason': 'See the details in CloudWatch Log Stream: ' + context.log_stream_name,
+                  'PhysicalResourceId': context.log_stream_name,
+                  'StackId': event['StackId'],
+                  'RequestId': event['RequestId'],
+                  'LogicalResourceId': event['LogicalResourceId'],
+                  'Data': response_data
+              })
+              
+              response_url = event['ResponseURL']
+              http.request('PUT', response_url, body=response_body, headers={'Content-Type': ''})
+
+          def handler(event, context):
+              iam = boto3.client('iam')
+              provider_url = 'https://token.actions.githubusercontent.com'
+              
+              try:
+                  # List all OIDC providers and check if GitHub one exists
+                  providers = iam.list_open_id_connect_providers()
+                  exists = 'false'
+                  
+                  for provider in providers.get('OpenIDConnectProviderList', []):
+                      # Get provider details to check URL
+                      provider_arn = provider['Arn']
+                      try:
+                          provider_details = iam.get_open_id_connect_provider(
+                              OpenIDConnectProviderArn=provider_arn
+                          )
+                          if provider_details.get('Url') == provider_url:
+                              exists = 'true'
+                              break
+                      except:
+                          continue
+                  
+                  response_data = {'Exists': exists}
+                  send_response(event, context, 'SUCCESS', response_data)
+              except Exception as e:
+                  # If check fails, assume it doesn't exist to be safe
+                  response_data = {'Exists': 'false'}
+                  send_response(event, context, 'SUCCESS', response_data)
+
+  OIDCProviderCheckerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: CheckOIDCProvider
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - iam:ListOpenIDConnectProviders
+                  - iam:GetOpenIDConnectProvider
+                Resource: "*"
+
+  OIDCProviderCheck:
+    Type: Custom::OIDCProviderChecker
+    Properties:
+      ServiceToken: !GetAtt OIDCProviderChecker.Arn
   # S3 Bucket (private)
   SiteBucket:
     Type: AWS::S3::Bucket
@@ -133,9 +224,11 @@ Resources:
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
 
-  # OIDC Provider for GitHub Actions
+  # OIDC Provider for GitHub Actions (only create if it doesn't exist)
   GitHubOIDCProvider:
     Type: AWS::IAM::OIDCProvider
+    Condition: ShouldCreateOIDCProvider
+    DependsOn: OIDCProviderCheck
     Properties:
       Url: https://token.actions.githubusercontent.com
       ClientIdList:
@@ -145,6 +238,7 @@ Resources:
         - 1c58a3a8518e8759bf075b76b750d4f2df264fcd
 
   # IAM Role for GitHub Actions OIDC
+  # Uses predictable ARN format so it works whether provider is created or already exists
   GitHubActionsRole:
     Type: AWS::IAM::Role
     Properties:
@@ -154,7 +248,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Federated: !Ref GitHubOIDCProvider
+              Federated: !Sub "arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
             Action: sts:AssumeRoleWithWebIdentity
             Condition:
               StringEquals:
