@@ -40,7 +40,7 @@ Resources:
   OIDCProviderHandler:
     Type: AWS::Lambda::Function
     Properties:
-      FunctionName: !Sub "${AWS::StackName}-oidc-provider-handler"
+      FunctionName: !Sub "${AWS::StackName}-oidc-fn"
       Runtime: python3.11
       Handler: index.handler
       Role: !GetAtt OIDCProviderHandlerRole.Arn
