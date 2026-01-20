@@ -409,7 +409,7 @@ function updateCloudFormationUrl() {
 
   // Build CloudFormation URL with proper format
   const templateUrl =
-    "https://s3.us-east-1.amazonaws.com/easystatic.piquard.codes/assets/cloudformation.yaml";
+    "https://s3.us-east-1.amazonaws.com/easy-static.piquard.codes-site-349499464670/assets/cloudformation.yaml";
 
   // Base URL with required templateURL parameter
   let finalUrl = `https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=${encodeURIComponent(
